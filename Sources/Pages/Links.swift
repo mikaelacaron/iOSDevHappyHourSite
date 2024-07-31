@@ -19,9 +19,13 @@ struct Links: StaticPage {
             }
             .font(.title1)
         } header: {
-            "This Month's Event"
+            Text {
+                "This Month's Event"
+            }
+            .fontWeight(.bold)
         }
         .cardStyle(.bordered)
+        .margin(.bottom, 20)
         
         Card {
             Text {
@@ -33,9 +37,13 @@ struct Links: StaticPage {
             }
             .font(.title1)
         } header: {
-            "Community"
+            Text {
+                "Community"
+            }
+            .fontWeight(.bold)
         }
         .cardStyle(.bordered)
+        .margin(.bottom, 20)
         
         Card {
             Text {
@@ -47,9 +55,14 @@ struct Links: StaticPage {
             }
             .font(.title1)
         } header: {
-            "Donation"
+            
+            Text {
+                "Donation"
+            }
+            .fontWeight(.bold)
         }
         .cardStyle(.bordered)
+        .margin(.bottom, 20)
         
         Card {
             Text {
@@ -61,9 +74,13 @@ struct Links: StaticPage {
             }
             .font(.title1)
         } header: {
-            "Support"
+            Text {
+                "Support"
+            }
+            .fontWeight(.bold)
         }
         .cardStyle(.bordered)
+        .margin(.bottom, 20)
         
         Card {
             Text {
@@ -75,8 +92,12 @@ struct Links: StaticPage {
             }
             .font(.title1)
         } header: {
-            "Important"
+            Text {
+                "Support"
+            }
+            .fontWeight(.bold)
         }
         .cardStyle(.bordered)
+        .margin(.bottom, 20)
     }
 }
