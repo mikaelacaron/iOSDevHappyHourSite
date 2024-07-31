@@ -23,7 +23,7 @@ struct ExampleSite: Site {
     var author = "iOSDevHappyHour Organizers"
 
     var homePage = Home()
-    var theme = MyTheme()
+    var theme = MainTheme()
     
     var pages: [any StaticPage] {
         Links() // must be added here to make a new page
