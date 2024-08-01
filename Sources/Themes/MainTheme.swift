@@ -9,7 +9,7 @@ struct MainTheme: Theme {
             Body {
                 page.body
 
-                IgniteFooter()
+                Footer()
             }
             .class("container")
         }
