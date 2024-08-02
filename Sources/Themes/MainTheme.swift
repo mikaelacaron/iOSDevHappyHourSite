@@ -12,7 +12,7 @@ struct MainTheme: Theme {
                 }
                 .class("col-sm-10", "mx-auto")
 
-                SocialFooter()
+                BetterSocialFooter()
             }
         }
     }
