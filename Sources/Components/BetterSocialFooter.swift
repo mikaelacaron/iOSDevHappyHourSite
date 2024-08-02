@@ -35,11 +35,5 @@ struct BetterSocialFooter: Component, HTMLRootElement {
         .margin(.top, .extraLarge)
         .margin(.bottom, 0)
         .background(.init(hex: "#204161"))
-        
-//        Text {
-//            "Created with "
-//            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
-//        }
-//        .horizontalAlignment(.center)
     }
 }
