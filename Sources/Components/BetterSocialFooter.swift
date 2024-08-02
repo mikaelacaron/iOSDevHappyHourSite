@@ -19,8 +19,15 @@ struct BetterSocialFooter: Component, HTMLRootElement {
                     .class("fs-1")
                     .target(.blank)
                     .relationship(.noOpener, .noReferrer)
-                
             }
+            
+            Text(markdown: "<br />")
+            
+            Span("Created with ")
+                .style("color: white")
+            
+            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
+                .style("color: white")
         }
         .font(.title2)
         .padding(50)
@@ -29,10 +36,10 @@ struct BetterSocialFooter: Component, HTMLRootElement {
         .margin(.bottom, 0)
         .background(.init(hex: "#204161"))
         
-        Text {
-            "Created with "
-            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
-        }
-        .horizontalAlignment(.center)
+//        Text {
+//            "Created with "
+//            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
+//        }
+//        .horizontalAlignment(.center)
     }
 }
