@@ -1,33 +1,32 @@
+//
+//  SocialFooter.swift
+//  
+//
+//  Created by Mikaela Caron on 8/1/24.
+//
+
 import Foundation
 import Ignite
 
 struct SocialFooter: Component, HTMLRootElement {
-    let icons = [
-      Image(systemName: "twitter"),
-      Image(systemName: "mastodon"),
-      Image(systemName: "threads"),
-      Image(systemName: "youtube"),
-      Image(systemName: "github")
-    ]
-
-    let urlStrings = [
-      "https://x.com/iosdevhappyhour",
-      "https://mastodon.iosdevhappyhour.com/@iosdevhappyhour",
-      "https://threads.net/@iosdevhappyhour",
-      "https://youtube.com/@iOSDevHappyHour",
-      "https://github.com/mikaelacaron"
-    ]
-
     func body(context: PublishingContext) -> [any PageElement] {
         Text {
-            for (icon, urlString) in zip(icons, urlStrings) {
-                Link(icon, target: urlString)
+            for media in SocialMedia.allCases {
+                Link(media.icon, target: media.urlString)
                     .margin(.trailing, 20)
                     .style("color: white")
                     .class("fs-1")
                     .target(.blank)
                     .relationship(.noOpener, .noReferrer)
             }
+            
+            Text(markdown: "<br />")
+            
+            Span("Created with ")
+                .style("color: white")
+            
+            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
+                .style("color: white")
         }
         .font(.title2)
         .padding(50)
@@ -35,11 +34,5 @@ struct SocialFooter: Component, HTMLRootElement {
         .margin(.top, .extraLarge)
         .margin(.bottom, 0)
         .background(.init(hex: "#204161"))
-        
-        Text {
-            "Created with "
-            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
-        }
-        .horizontalAlignment(.center)
     }
 }
