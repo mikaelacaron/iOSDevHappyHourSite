@@ -1,24 +1,7 @@
 import Foundation
 import Ignite
 
-struct Footer: Component, HTMLRootElement {
-    init() { }
-    
-    func body(context: PublishingContext) -> [any PageElement] {
-        Text {
-            "Created with "
-            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
-            
-            Text("iOSDevHappyHour")
-                .background(.blue)
-                .padding(100)
-        }
-        .horizontalAlignment(.center)
-        .margin(.top, .extraLarge)
-    }
-}
-
-public struct SocialFooter: Component, HTMLRootElement {
+struct SocialFooter: Component, HTMLRootElement {
     let icons = [
       Image(systemName: "twitter"),
       Image(systemName: "mastodon"),
@@ -35,7 +18,7 @@ public struct SocialFooter: Component, HTMLRootElement {
       "https://github.com/mikaelacaron"
     ]
 
-    public func body(context: PublishingContext) -> [any PageElement] {
+    func body(context: PublishingContext) -> [any PageElement] {
         Text {
             for (icon, urlString) in zip(icons, urlStrings) {
                 Link(icon, target: urlString)
@@ -52,5 +35,11 @@ public struct SocialFooter: Component, HTMLRootElement {
         .margin(.top, .extraLarge)
         .margin(.bottom, 0)
         .background(.init(hex: "#204161"))
+        
+        Text {
+            "Created with "
+            Link("IGNITE", target: URL("https://github.com/twostraws/Ignite"))
+        }
+        .horizontalAlignment(.center)
     }
 }

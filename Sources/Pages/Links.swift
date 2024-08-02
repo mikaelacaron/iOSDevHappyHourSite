@@ -19,7 +19,6 @@ struct Links: StaticPage {
                     Image(systemName: "calendar")
                         .margin(.trailing, 20)
                         .foregroundStyle(.init(hex: "#204161"))
-//                        .style("color: white")
                     
                     "RSVP for the Zoom Link!"
                 }
