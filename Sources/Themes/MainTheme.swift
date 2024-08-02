@@ -7,11 +7,13 @@ struct MainTheme: Theme {
             Head(for: page, in: context)
 
             Body {
-                page.body
+                Section {
+                    page.body
+                }
+                .class("col-sm-10", "mx-auto")
 
-                Footer()
+                SocialFooter()
             }
-            .class("container")
         }
     }
 }

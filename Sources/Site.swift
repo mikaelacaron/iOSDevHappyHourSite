@@ -19,6 +19,8 @@ struct ExampleSite: Site {
     var titleSuffix = " – Connect with developers"
     var url = URL("https://www.example.com")
     var builtInIconsEnabled = true
+    
+    var pageWidth = 12
 
     var author = "iOSDevHappyHour Organizers"
 
