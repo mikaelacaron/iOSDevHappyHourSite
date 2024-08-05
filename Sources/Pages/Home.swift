@@ -10,7 +10,9 @@ struct Home: StaticPage {
             .horizontalAlignment(.center)
         
         Divider()
-            .foregroundStyle(.red)
+            .class("border-3", "opacity-100")
+            .style("border-color: #EDB365")
+            
         
         Text {
             "The goal of "
