@@ -11,7 +11,7 @@ struct Home: StaticPage {
         
         Divider()
             .class("border-3", "opacity-100")
-            .style("border-color: #EDB365")
+            .style("border-color: \(WebColor.yellow)")
             
         
         Text {
@@ -23,9 +23,11 @@ struct Home: StaticPage {
         }
         
         Text {
-            Link("Register", target: "")
+            Link("Register Now", target: "")
                 .linkStyle(.button)
                 .role(.primary)
+                .style("background-color: \(WebColor.yellow)")
+                .class("border-0")
         }
     }
 }

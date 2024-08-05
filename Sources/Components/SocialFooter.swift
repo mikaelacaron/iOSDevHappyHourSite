@@ -33,6 +33,6 @@ struct SocialFooter: Component, HTMLRootElement {
         .horizontalAlignment(.center)
         .margin(.top, .extraLarge)
         .margin(.bottom, 0)
-        .background(.init(hex: "#204161"))
+        .background(.init(hex: "\(WebColor.blue)"))
     }
 }
