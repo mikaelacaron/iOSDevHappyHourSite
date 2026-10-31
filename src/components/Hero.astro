@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import { site } from '../config';
+import banner from '../assets/idhh-banner.png';
+---
+
+<!--
+  The banner already includes its own orange border and the site title,
+  so the hero is just the image. It stays inside the <h1> with the site
+  title as alt text, so search engines still see the page's main heading.
+-->
+<header class="hero">
+  <h1 class="banner">
+    <Image
+      src={banner}
+      alt={site.title}
+      widths={[640, 1080, 1600, 2160]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+  </h1>
+</header>
+
+<style>
+  .hero {
+    background: var(--navy);
+  }
+
+  .banner {
+    max-width: 2160px;
+    margin: 0 auto;
+    line-height: 0;
+  }
+
+  .banner :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

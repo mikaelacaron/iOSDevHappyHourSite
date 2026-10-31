@@ -1,0 +1,44 @@
+# Builds the Astro site and deploys it to GitHub Pages.
+# Guide: https://docs.astro.build/en/guides/deploy/github/
+name: Deploy to GitHub Pages
+
+on:
+  # Run on every push to main.
+  push:
+    branches: [main]
+  # Allow running it by hand from the Actions tab.
+  workflow_dispatch:
+
+# Permissions GitHub Pages needs to publish the site.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; a newer push doesn't cancel one already running.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v7
+      - name: Install, build, and upload the site
+        uses: withastro/action@v6
+        with:
+          # Match .nvmrc.
+          node-version: 26
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

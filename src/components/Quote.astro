@@ -1,0 +1,67 @@
+---
+import { quote } from '../config';
+---
+
+<section class="quote-section" aria-label="What attendees say">
+  <div class="container">
+    <figure class="quote">
+      <blockquote>
+        <p>{quote.text}</p>
+      </blockquote>
+      <figcaption>
+        <span class="name">{quote.name}</span>, {quote.role}
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .quote-section {
+    padding: 20px 20px 80px;
+    background: var(--white);
+    color: var(--navy);
+    text-align: center;
+  }
+
+  .quote {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  blockquote::before {
+    content: '\201C';
+    display: block;
+    height: 0.6em;
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--orange);
+  }
+
+  blockquote p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  figcaption {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  figcaption::before {
+    content: '';
+    display: block;
+    width: 3rem;
+    margin: 0 auto 1rem;
+    border-top: 2px solid var(--orange);
+  }
+
+  .name {
+    font-weight: bold;
+  }
+</style>

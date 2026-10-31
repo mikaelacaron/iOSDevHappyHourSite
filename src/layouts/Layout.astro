@@ -1,0 +1,60 @@
+---
+import { getImage } from 'astro:assets';
+import { site, links } from '../config';
+import banner from '../assets/idhh-banner.png';
+import '../styles/global.css';
+
+// Canonical URL for the current page, e.g. https://www.iosdevhappyhour.com/
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Share image: resized from the 2160x1080 source to a 1200x600 JPG at build time.
+const ogImage = await getImage({ src: banner, width: 1200, format: 'jpg' });
+const ogImageURL = new URL(ogImage.src, Astro.site);
+
+// Structured data so search engines can link the site to its social profiles.
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.title,
+  url: Astro.site?.href,
+  description: site.description,
+  sameAs: [links.twitter, links.bluesky, links.instagram, links.threads, links.discord],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="theme-color" content={site.themeColor} />
+    <title>{site.title}</title>
+    <meta name="description" content={site.description} />
+
+    <!-- OpenGraph (Facebook, LinkedIn, Discord, iMessage, Slack) -->
+    <meta property="og:title" content={site.title} />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:description" content={site.description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content={String(ogImage.attributes.width)} />
+    <meta property="og:image:height" content={String(ogImage.attributes.height)} />
+    <meta property="og:image:alt" content={site.ogImageAlt} />
+
+    <!-- X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={site.twitterHandle} />
+    <meta name="twitter:image:alt" content={site.ogImageAlt} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

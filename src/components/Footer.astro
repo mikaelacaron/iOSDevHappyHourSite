@@ -1,0 +1,98 @@
+---
+import { links } from '../config';
+import CoffeeIcon from '../icons/buymeacoffee.svg';
+import DiscordIcon from '../icons/discord.svg';
+import TwitterIcon from '../icons/twitter.svg';
+import BlueskyIcon from '../icons/bluesky.svg';
+import ThreadsIcon from '../icons/threads.svg';
+import InstagramIcon from '../icons/instagram.svg';
+---
+
+<footer class="footer">
+  <div class="container">
+    <nav class="socials" aria-label="Social links">
+      <a
+        href={links.buyMeACoffee}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Buy Us a Coffee"
+      >
+        <CoffeeIcon aria-hidden="true" />
+      </a>
+      <a href={links.discord} target="_blank" rel="noopener noreferrer" aria-label="Discord">
+        <DiscordIcon aria-hidden="true" />
+      </a>
+      <a href={links.twitter} target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <TwitterIcon aria-hidden="true" />
+      </a>
+      <a href={links.bluesky} target="_blank" rel="noopener noreferrer" aria-label="Bluesky">
+        <BlueskyIcon aria-hidden="true" />
+      </a>
+      <a href={links.threads} target="_blank" rel="noopener noreferrer" aria-label="Threads">
+        <ThreadsIcon aria-hidden="true" />
+      </a>
+      <a href={links.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <InstagramIcon aria-hidden="true" />
+      </a>
+    </nav>
+    <p class="conduct">
+      <a href={links.codeOfConduct} target="_blank" rel="noopener noreferrer">Code of Conduct</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    width: 100%;
+    padding: 3rem 0;
+    background: var(--navy);
+    border-top: 10px solid var(--orange);
+    text-align: center;
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 30px;
+  }
+
+  .socials a {
+    color: var(--white);
+    transition: color 0.15s ease-in-out;
+  }
+
+  .socials a:hover,
+  .socials a:focus-visible {
+    color: var(--orange);
+  }
+
+  .socials :global(svg) {
+    width: auto;
+    height: 1.75rem;
+    fill: currentColor;
+  }
+
+  .conduct {
+    margin: 2rem 0 0;
+    font-size: 1.25rem;
+  }
+
+  .conduct a {
+    color: var(--white);
+    text-decoration: underline;
+    text-decoration-color: var(--orange);
+    text-underline-offset: 0.25em;
+  }
+
+  .conduct a:hover,
+  .conduct a:focus-visible {
+    color: var(--orange);
+  }
+
+  @media (min-width: 576px) {
+    .socials :global(svg) {
+      height: 2.5rem;
+    }
+  }
+</style>
